@@ -11,7 +11,7 @@
 #******************************************************************************#
 
 NAME				:= fdf
-SRCS				:= main.c
+SRCS				:= main.c translation.c events.c
 PATH_OBJ			:= objs
 PATH_SRC			:= srcs
 PATH_INC			:= incs
@@ -23,8 +23,9 @@ INCLUDES			:= -I./$(PATH_INC)
 LIBFT				:= libft/libft.a
 INC_LIBFT			:= -I libft/includes
 # MLX					:= minilibx_macos/libmlx.a
-MLX					:= -I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
+MLX					:= -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit -g
 # INC_MLX				:= -I minilibx_macos/
+INC_MLX				:= -I /usr/X11/include
 
 
 all: build $(NAME)
