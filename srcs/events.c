@@ -22,6 +22,10 @@ int			key_pressed_hook(int keycode, t_env *e)
 		e->buttons.zoom_in = 1;
 	if (keycode == K_S)
 		e->buttons.zoom_out = 1;
+	if (keycode == K_A)
+		e->buttons.rotate_left = 1;
+	if (keycode == K_D)
+		e->buttons.rotate_right = 1;
 	return (0);
 }
 
@@ -39,6 +43,10 @@ int			key_released_hook(int keycode, t_env *e)
 		e->buttons.zoom_in = 0;
 	if (keycode == K_S)
 		e->buttons.zoom_out = 0;
+	if (keycode == K_A)
+		e->buttons.rotate_left = 0;
+	if (keycode == K_D)
+		e->buttons.rotate_right = 0;
 	return (0);
 }
 
@@ -56,5 +64,9 @@ int			loop_hook(t_env *e)
 		zoom_in(e);
 	if (e->buttons.zoom_out)
 		zoom_out(e);
+	if (e->buttons.rotate_left)
+		rotate_left(e);
+	if (e->buttons.rotate_right)
+		rotate_right(e);
 	return (0);
 }

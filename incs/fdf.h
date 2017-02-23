@@ -8,6 +8,8 @@
 # define K_Q				0x0C
 # define K_W				0x0D
 # define K_S				0x01
+# define K_A				0x00
+# define K_D				0x02
 # define K_LEFT_ARROW		0x7B
 # define K_DOWN_ARROW		0x7D
 # define K_UP_ARROW			0x7E
@@ -20,6 +22,8 @@
 # include <math.h>
 # include <stdio.h>
 
+
+//bresenham
 
 typedef struct		s_point
 {
@@ -37,6 +41,8 @@ typedef struct		s_buttons
 	int				left;
 	int				zoom_in;
 	int				zoom_out;
+	int				rotate_left;
+	int				rotate_right;
 }					t_buttons;
 
 typedef struct		s_env
@@ -49,6 +55,7 @@ typedef struct		s_env
 	int				z_min;
 	int				z_max;
 	int				scale;
+	double			theta;
 }					t_env;
 
 void		fill_list(t_point **points, t_point *point);
@@ -65,6 +72,8 @@ int			key_pressed_hook(int keycode, t_env *e);
 int			key_released_hook(int keycode, t_env *e);
 void		zoom_in(t_env *e);
 void		zoom_out(t_env *e);
+void		rotate_left(t_env *e);
+void		rotate_right(t_env *e);
 
 
 #endif

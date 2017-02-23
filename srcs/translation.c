@@ -64,3 +64,23 @@ void			zoom_out(t_env *e)
 		e->scale--;
 	render(e);
 }
+
+void			rotate_left(t_env *e)
+{
+	double		step;
+
+	step = 0.001;
+	if (e->theta > -1.0 && e->theta < M_PI)
+		e->theta += step;
+	render(e);
+}
+
+void			rotate_right(t_env *e)
+{
+	double		step;
+
+	step = 0.001;
+	if (e->theta > -1.0 && e->theta < M_PI)
+		e->theta -= step;
+	render(e);
+}
